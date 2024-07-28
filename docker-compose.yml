@@ -1,0 +1,14 @@
+services:
+  crudmongo:
+    image: mongo:latest
+    container_name: "crudmongo"
+    ports:
+      - 27017:27017
+
+  crud-server:
+    image: crud-server:latest
+    container_name: crud-server
+    ports:
+      - 8080:8080
+    links:
+      - crudmongo
